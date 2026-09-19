@@ -1,0 +1,35 @@
+name: React Calculator Test
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+
+    - name: Install Packages
+      run: npm install
+
+
+    - name: Run Build Test
+      run: npm run build
